@@ -3,7 +3,6 @@
 This is a search engine application that finds sentences for a given word in a source and target language. It leverages the power of Elasticsearch for indexing data and a Sanic server for the API. The frontend is built with React.js.
 
 ![light example](https://github.com/hamzabealta/word-search/blob/main/example1.png?raw=true)
-![dark example](https://github.com/hamzabealta/word-search/blob/main/example2.png?raw=true)
 
 
 The application is designed to run in a Docker environment, but for simplicity, SSL verification is not currently enabled on the Nginx server, and the application runs on the host network to avoid CORS issues.
