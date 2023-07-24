@@ -58,4 +58,4 @@ To deploy this on AWS, follow the steps for enabling SSL. We recommend using [Po
 
 ## License
 
-This code is available for any use, and is a simple showcase of some of the technology stack that we use on [www.algernoun.com](www.algernoun.com).
+This code is available for any use, and is a simple showcase of some of the technology stack that we use on [www.algernoun.com](https://www.algernoun.com).
