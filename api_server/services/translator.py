@@ -82,10 +82,13 @@ class UniversalTranslator:
 
         if is_language_google_supported(source_language) and is_language_google_supported(target_language):
             # Translate the text to the target language
-            translated_text, _ = self.translate_to_language(
+            translated_text, detected_language = self.translate_to_language(
                 text, source_language, target_language)
         else:
             translated_text = "we do not support this language"
+            
+        if source_language == 'auto':
+            source_language = ISO2to1(detected_language)
             
         return {
             'source_language_code' : source_language,

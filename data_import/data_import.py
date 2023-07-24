@@ -26,6 +26,7 @@ def import_csv_to_es_bulk(es, index_name, csv_file_path):
 
     df = pd.read_csv(csv_file_path, sep='\t', names=headers)
 
+    return None
     if index_name == 'sentences':
         languages = ['eng', 'spa', 'deu', 'cat', 'ara']
         df = df[df['language_code'].isin(languages)]
@@ -49,5 +50,6 @@ while True:
         print("Elasticsearch is not yet available, retrying...")
         time.sleep(5)
 
-import_csv_to_es_bulk(es, "sentences", "../data/filtered_sentences.csv")
-import_csv_to_es_bulk(es, "links", "../data/filtered_links.csv")
+print("starting")
+import_csv_to_es_bulk(es, "sentences", "data/filtered_sentences.csv")
+# import_csv_to_es_bulk(es, "links", "app/data/filtered_links.csv")

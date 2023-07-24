@@ -109,6 +109,9 @@ def is_language_google_supported(language):
 
 def get_translations(es, input_text, input_word, source_language, target_language, size=10):
 
+    source_language = ISO1to2(source_language)
+    target_language = ISO1to2(target_language)
+    
     # Increase the number of source language sentences retrieved
     search_size = size * 1000
 

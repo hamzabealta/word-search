@@ -3,3 +3,4 @@ data/sentences.csv
 data/filtered_sentences.csv
 data/filtered_links.csv
 *-env
+.DS_Store

@@ -9,6 +9,7 @@ class SearchEngine:
         # Create an instance of the Google Translator class
         self.translator = UniversalTranslator()
         self.es = Elasticsearch("http://elasticsearch:9200/", basic_auth=('elastic', 'testpassword'))
+        # self.es = Elasticsearch("http://localhost:9200/", basic_auth=('elastic', 'testpassword'))
 
     def translate(self, text, source_language, target_language):
         return self.translator.get_text_translation(text, source_language, target_language)

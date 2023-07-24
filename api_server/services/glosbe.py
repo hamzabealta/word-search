@@ -28,7 +28,6 @@ class GlosbeTranslator:
 
         if r.status == 200:
             data = json.loads(r.data.decode('utf-8'))
-            print(data)
             if (src == 'auto'):
                 if (data['suggestedLanguage']):
                     return {'text': data['translation'], 'src': data['suggestedLanguage']}
