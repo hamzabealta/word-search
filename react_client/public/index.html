@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Algernoun App" />
+
+    <title>Algernoun</title>
+
+    <link async rel="stylesheet" id="layout-styles-anchor" href="%PUBLIC_URL%/splash-screen.css" />
+
+    <!-- Preconnect or dns-prefetch to external resources -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/media/logos/algernoun-dark.svg" />
+    <link rel="preload" as="image" href="/media/logos/algernoun-white.webp" />
+    <link rel="preload" as="image" href="/media/logos/algernoun.webp" />
+
+    <!-- Include favicon -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/media/logos/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="%PUBLIC_URL%/media/logos/favicon-64x64.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/media/logos/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="%PUBLIC_URL%/media/logos/favicon-16x16.png"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGZZMXMGNS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'G-YGZZMXMGNS')
+    </script>
+
+    <script type="application/ld+json">
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "url": "https://www.algernoun.com",
+          "logo": "https://www.algernoun.com/media/logos/algernoun.webp"
+        }
+        </script>
+  </head>
+
+  <!-- <body id="kt_body" class="page-loading"> -->
+  <body id="kt_body">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!--begin::Theme mode setup on page load-->
+    <script>
+      if (document.documentElement) {
+        var defaultThemeMode = 'system'
+
+        var hasKTName = document.body.hasAttribute('data-kt-name')
+        var lsKey = 'kt_' + (hasKTName ? name + '_' : '') + 'theme_mode_value'
+        var themeMode = localStorage.getItem(lsKey)
+        if (!themeMode) {
+          if (defaultThemeMode === 'system') {
+            themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          } else {
+            themeMode = defaultThemeMode
+          }
+        }
+
+        document.documentElement.setAttribute('data-bs-theme', themeMode)
+      }
+    </script>
+    <!--end::Theme mode setup on page load-->
+
+    <div id="root" class="d-flex flex-column flex-root"></div>
+    <div id="splash-screen" class="splash-screen">
+      <img
+        width="100%"
+        height="100%"
+        src="%PUBLIC_URL%/media/logos/algernoun-dark.svg"
+        alt="Algernoun logo"
+      />
+      <span>Loading ...</span>
+    </div>
+    <div id="root-modals"></div>
+  </body>
+</html>

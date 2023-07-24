@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://algernoun.com/</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/apps/analysis/translator</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/dashboard</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/about-us</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/auth/login</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/auth/registration</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/auth/forgot-password</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/builder</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/menu-test</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/404</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/500</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/logout</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/privacy-policy</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/terms</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://algernoun.com/analysis</loc>
+	<lastmod>2023-07-14T10:42:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+</urlset>
