@@ -24,7 +24,7 @@ FROM nginx:stable-alpine
 
 # Install necessary packages for the script
 RUN apk add --no-cache certbot python3 py3-pip
-RUN pip3 install certbot-nginx
+RUN apk add --no-cache certbot-nginx
 
 # Copy the react build from Stage 1
 COPY --from=build /app/build /usr/share/nginx/html

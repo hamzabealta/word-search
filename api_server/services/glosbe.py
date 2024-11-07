@@ -2,37 +2,39 @@ from fake_useragent import UserAgent
 import urllib3
 import json
 from urllib.parse import urlencode
-
+from typing import Dict, Union
 
 class GlosbeTranslator:
+    BASE_URL = "https://translator-api.glosbe.com"
 
     def __init__(self) -> None:
-        self.ua = UserAgent(browsers=['edge', 'chrome'])
+        """Initialize with a user agent and HTTP connection pool."""
+        self.ua = UserAgent(browsers=["edge", "chrome"])
         self.http = urllib3.PoolManager()
 
-    def translate(self, text, src, dest):
-        if (src == 'auto'):
-            encoded_args = urlencode({'sourceLang': 'en', 'targetLang': dest})
-            url = "https://translator-api.glosbe.com/translateByLangDetect?" + encoded_args
-        else:
-            encoded_args = urlencode({'sourceLang': src, 'targetLang': dest})
-            url = "https://translator-api.glosbe.com/translateByLang?" + encoded_args
-            
+    def translate(self, text: str, src: str, dest: str) -> Dict[str, Union[str, None]]:
+        """Translate text from source to destination language using Glosbe API."""
+        endpoint = "/translateByLangDetect" if src == "auto" else "/translateByLang"
+        url = f"{self.BASE_URL}{endpoint}"
+        params = urlencode({"sourceLang": src if src != "auto" else "en", "targetLang": dest})
+        
         headers = {
-            'Content-Type': 'text/plain',
-            'Accept': 'application/json, text/plain, */*',
-            'accept-encoding': 'gzip, deflate, br',
-            'user-agent': self.ua.random}
+            "Content-Type": "text/plain",
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Encoding": "gzip, deflate, br",
+            "User-Agent": self.ua.random
+        }
 
-        r = self.http.request('POST', url=url, headers=headers, body=text.encode('utf-8'))
+        response = self.http.request("POST", url=f"{url}?{params}", headers=headers, body=text.encode("utf-8"))
+        return self._parse_response(response, src)
 
-        if r.status == 200:
-            data = json.loads(r.data.decode('utf-8'))
-            if (src == 'auto'):
-                if (data['suggestedLanguage']):
-                    return {'text': data['translation'], 'src': data['suggestedLanguage']}
-                return {'text': data['translation'], 'src': src}
-            return {'text': data['translation'], 'src': src}
-        else:
-            return {'text': "Something went wrong", 'src': src}
+    def _parse_response(self, response, src: str) -> Dict[str, Union[str, None]]:
+        """Parse the API response and return the translation data."""
+        if response.status != 200:
+            return {"text": "Something went wrong", "src": src}
 
+        data = json.loads(response.data.decode("utf-8"))
+        return {
+            "text": data.get("translation"),
+            "src": data.get("suggestedLanguage") or src
+        }

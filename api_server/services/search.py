@@ -1,18 +1,21 @@
-
 from services.translator import UniversalTranslator
 from elasticsearch import Elasticsearch
-from services.utils import *
+from services.utils import get_translations
+import os
 
 class SearchEngine:
-
     def __init__(self):
-        # Create an instance of the Google Translator class
+        """Initialize the SearchEngine with a translator and Elasticsearch client."""
         self.translator = UniversalTranslator()
-        self.es = Elasticsearch("http://elasticsearch:9200/", basic_auth=('elastic', 'testpassword'))
-        # self.es = Elasticsearch("http://localhost:9200/", basic_auth=('elastic', 'testpassword'))
+        self.es = Elasticsearch(
+            os.getenv("ELASTICSEARCH_URL", "http://elasticsearch:9200/"),
+            basic_auth=(os.getenv("ELASTIC_USER", "elastic"), os.getenv("ELASTIC_PASSWORD", "testpassword"))
+        )
 
-    def translate(self, text, source_language, target_language):
+    def translate(self, text: str, source_language: str, target_language: str) -> str:
+        """Translate text from source to target language."""
         return self.translator.get_text_translation(text, source_language, target_language)
     
-    def search(self, input_text, input_word, source_language, target_language, size=10):
-        return get_translations(self.es, input_text, input_word, source_language, target_language, size)
+    def search(self, text: str, word: str, source_language: str, target_language: str, size: int = 10):
+        """Search for word occurrences in input_text, with optional translation."""
+        return get_translations(self.es, text, word, source_language, target_language, size)
