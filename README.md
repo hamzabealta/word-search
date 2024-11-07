@@ -15,13 +15,25 @@ The application is designed to run in a Docker environment, but for simplicity, 
 
 ## Prerequisites
 
-To run this project, you need Docker installed on your machine and Docker Swarm initialized.
+To run this project, you need Docker installed on your machine and Docker Swarm initialized (optional).
 
 ## Building and Running
 
-To build the images:
+To build and run the application using Docker Compose:
 
-If you're not using Docker Swarm like me and therefore aren't required to build each image individually for XML file specification, you can simply include a build tag in the Docker Compose file. Each service's build context is already configured to point to the appropriate directory.   
+If you're not using Docker Swarm and therefore aren't required to build each image individually, you can build and run all services directly with Docker Compose. Each service’s build context in the `docker-compose.yml` file is already configured to point to the appropriate directory.
+
+To build and start all services at once, simply run:
+
+```bash
+docker-compose up --build
+```
+
+This command will build each image based on the specified `build` contexts and start the containers.
+
+Alternative Manual Build Process:
+
+If you prefer to build each image individually, you can use the following commands: 
 
 ```bash
 docker build -t data_import ./data_import
@@ -29,7 +41,7 @@ docker build -t api_server ./api_server
 docker build -t web-server ./react_client
 ```
 
-Then, to launch the stack:
+Then, to launch the stack with Docker Swarm:
 
 ```bash
 docker stack deploy --compose-file project-stack.yml <stack-name>
