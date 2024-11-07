@@ -1,7 +1,5 @@
 data/links.csv
 data/sentences.csv
-filtered_sentences.csv
-filtered_links.csv
 *-env
 .DS_Store
 react_client/node_modules
