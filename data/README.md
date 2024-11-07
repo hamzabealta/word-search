@@ -16,7 +16,7 @@ The code filters both the `sentences.csv` and `links.csv` files and writes the f
 You can run the code with the following command:
 
 ```python
-filter_csv("sentences.csv", "links.csv")
+python data_filter.py
 ```
 
 Ensure that the sentences.csv and links.csv files are in the same directory as your Python script.
